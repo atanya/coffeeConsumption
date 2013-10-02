@@ -1,0 +1,22 @@
+﻿@model IEnumerable<CoffeeConsumption.Models.Cup>
+
+@{
+    ViewBag.Title = "Get beverage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="../../Scripts/cc.getBeverage.js"></script>
+<h2>GetBeverage</h2>
+
+<ul style="padding-left: 0px">
+@foreach (var item in Model)
+{
+    <li class="marginTop20px" style="display: inline-block">
+        <a href="#" id="@(item.beverageType.ToString())SelectButton">
+            <img src="../../Content/@(item.beverageType.ToString()).jpg" class="beverageButton" alt="@(item.beverageType.ToString())"/>
+        </a>
+    </li>
+}
+</ul>
+<div class="textAlignCenter">
+    <button class="button" value="Get" id="getButton">Get</button>
+</div>

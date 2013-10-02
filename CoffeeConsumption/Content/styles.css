@@ -1,0 +1,48 @@
+body {
+  background-color: threedshadow; }
+
+.contentDiv {
+  background-color: #F5F5F5;
+  border-color: #808080;
+  border-radius: 10px 10px 10px 10px;
+  border-style: solid;
+  border-width: 2px;
+  height: 300px;
+  margin: 30px auto auto;
+  padding: 20px;
+  width: 250px; }
+
+.button {
+  height: 25px;
+  margin-top: 20px;
+  width: 100px;
+  border-radius: 40px 10px 40px 10px;
+  background-color: #8FBC8F; }
+
+input {
+  border-radius: 5px 5px 5px 5px;
+  float: right;
+  width: 150px; }
+
+label {
+  float: left; }
+
+.textAlignCenter {
+  text-align: center; }
+
+.marginTop20px {
+  margin-top: 20px;
+  overflow: hidden; }
+
+.beverageButton {
+  padding: 1px;
+  width: 65px;
+  height: 65px;
+  margin: 5px;
+  border-radius: 7px 7px 7px 7px; }
+
+.selectedBeverage {
+  border-color: #008000;
+  border-style: solid;
+  border-width: 3px; }
+

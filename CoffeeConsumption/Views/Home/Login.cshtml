@@ -1,0 +1,25 @@
+﻿@model CoffeeConsumption.Models.User
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+<div>
+    @using (Html.BeginForm("Login"))
+    {
+        @Html.ValidationSummary(true)
+        <div class="marginTop20px" title="Set your email">
+            <label>Login: </label>@Html.EditorFor(m => m.Email)
+            @Html.ValidationMessageFor(m=> m.Email)
+        </div>
+        <div class="marginTop20px">
+            <label>Password: </label>@Html.EditorFor(m => m.Password)
+            @Html.ValidationMessageFor(m=> m.Password)
+        </div>
+        <div class="textAlignCenter">
+            <button class="button" value="Login" id="loginButton">Login</button>
+        </div>
+    }
+</div>
