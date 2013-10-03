@@ -11,7 +11,15 @@
         $(this).children('img').addClass('selectedBeverage');
     },
     
-    getBeverage: function() {
+    getBeverage: function () {
+        var selectedCup = $(".selectedBeverage").first();
+        if (selectedCup) {
+            var cupId = selectedCup.data('cupid');
+            cc.proxy.getBeverage({ cup: { Id: cupId } }, cc.getBeverage.getBeverageOnSuccess, {});
+        }
+    },
+    
+    getBeverageOnSuccess: function() {
         
     }
 };

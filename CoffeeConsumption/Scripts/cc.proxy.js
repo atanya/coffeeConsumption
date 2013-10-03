@@ -12,7 +12,8 @@
             }
         });
     },
+    
     getBeverage: function (requestParams, onSuccess, onFailure) {
-        
+        cc.proxy.sendRequest(cc.urls.getBeverageUrl, requestParams, onSuccess, onFailure);
     }
 }

@@ -4,7 +4,9 @@ namespace CoffeeConsumption.Models
 {
     public class Cup
     {
-        public BeverageType beverageType { get; set; }
+        public int Id { get; set; }
+
+        public BeverageType Beverage { get; set; }
 
         public virtual ICollection<Consumption> Consumptions { get; set; }
     }

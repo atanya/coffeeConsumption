@@ -1,5 +1,6 @@
 ﻿body {
     background-color: threedshadow;
+	font-family: Comic Sans MS;
 }
 
 .contentDiv{
@@ -12,6 +13,7 @@
     margin: 30px auto auto;
     padding: 20px;
     width: 250px;
+	overflow: auto;
 }
 
 .button{
@@ -20,6 +22,7 @@
     width: 100px;
 	border-radius: 40px 10px 40px 10px;
 	background-color: #8FBC8F;
+	font-family: Comic Sans MS;
 }
 
 input{
@@ -39,12 +42,38 @@ label{
 	overflow: hidden;
 }
 
+.mainMenu{
+	padding-left: 0;
+	margin-bottom: 0px;
+	li{
+		 display: inline-block;
+	   background-color: activeborder;
+		text-align: center;
+		width: 70px;
+		word-wrap: break-word;
+		border-right: 2px solid #D3D3D3;
+		border-radius: 0px 7px 0px 0px;
+	}
+}
+
+.activeMenuItem{
+    background-color: #F5F5F5 !important;
+}
+
+
 .beverageButton{
 	padding: 1px;
 	width: 65px;
 	height: 65px;
 	margin: 5px;
 	border-radius: 7px 7px 7px 7px;
+}
+
+.beverageImage{
+	padding: 1px;
+	width: 35px;
+	height: 35px;
+	border-radius: 5px 5px 5px 5px;
 }
 
 .selectedBeverage{

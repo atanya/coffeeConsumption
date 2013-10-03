@@ -7,21 +7,17 @@ namespace CoffeeConsumption.Models
     {
         static OfficeContext()
         {
-            Database.SetInitializer<OfficeContext>(null);
+            Database.SetInitializer(new OfficeInitializer());
         }
 
         public OfficeContext()
-            : base("Name=TFSExtensionsContext")
+            : base("Name=OfficeContext")
         {
         }
 
         public DbSet<Cup> Cups { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Consumption> Consumptions { get; set; }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-        }
+        
     }
 }

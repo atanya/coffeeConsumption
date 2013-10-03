@@ -1,0 +1,34 @@
+﻿@using CoffeeConsumption.Models
+@model IEnumerable<Consumption>
+
+@{
+    ViewBag.Title = "PersonalReport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PersonalReport</h2>
+
+<h3>Today</h3>
+@foreach (Consumption item in Model.Where(c=> c.BeverageTime > DateTime.Now.Date))
+{
+    <div>
+        <img src="~/Content/@(item.Cup.Beverage.ToString()).jpg" title="@item.Cup.Beverage.ToString()" class="beverageImage"
+             alt="@(item.Cup.Beverage.ToString())"/> <span>@item.Cup.Beverage.ToString() at @item.BeverageTime.ToString("hh:mm")</span>
+    </div>
+}
+<h3>Yesterday</h3>
+@foreach (Consumption item in Model.Where(c => DateTime.Now.AddDays(-1).Date < c.BeverageTime && c.BeverageTime < DateTime.Now.Date))
+{
+    <div>
+        <img src="~/Content/@(item.Cup.Beverage.ToString()).jpg" title="@item.Cup.Beverage.ToString()" class="beverageImage"
+             alt="@(item.Cup.Beverage.ToString())"/> <span>@item.Cup.Beverage.ToString() at @item.BeverageTime.ToString("hh:mm")</span>
+    </div>
+}
+<h3>Earlier</h3>
+@foreach (Consumption item in Model.Where(c => c.BeverageTime < DateTime.Now.AddDays(-1).Date))
+{
+    <div>
+        <img src="~/Content/@(item.Cup.Beverage.ToString()).jpg" title="@item.Cup.Beverage.ToString()" class="beverageImage"
+             alt="@(item.Cup.Beverage.ToString())"/> <span>@item.Cup.Beverage.ToString() on @item.BeverageTime.ToString("dd:MM:yy") at @item.BeverageTime.ToString("hh:mm")</span>
+    </div>
+}

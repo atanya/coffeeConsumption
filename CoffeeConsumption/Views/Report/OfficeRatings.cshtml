@@ -1,0 +1,21 @@
+﻿@using CoffeeConsumption.Models
+@model List<Consumption>
+
+@{
+    ViewBag.Title = "OfficeRatings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>OfficeRatings</h2>
+
+@foreach (var item in Model.GroupBy(c => c.UserId)
+                  .Select(group => 
+                        new { Id = group.Key,
+                            Name = group.First().User.Name,
+                              Cups = group.OrderByDescending(x => x.Id) })
+                  .OrderByDescending(group => group.Cups.Count()))
+{
+    <div>
+        <span>@item.Name drank @item.Cups.Count() cups</span>
+    </div>
+}

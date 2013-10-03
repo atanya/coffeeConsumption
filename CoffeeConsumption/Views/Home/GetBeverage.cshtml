@@ -1,18 +1,18 @@
-﻿@model IEnumerable<CoffeeConsumption.Models.Cup>
+﻿@model List<CoffeeConsumption.Models.Cup>
 
 @{
     ViewBag.Title = "Get beverage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<script src="../../Scripts/cc.getBeverage.js"></script>
+<script src="~/Scripts/cc.getBeverage.js"></script>
 <h2>GetBeverage</h2>
 
 <ul style="padding-left: 0px">
 @foreach (var item in Model)
 {
     <li class="marginTop20px" style="display: inline-block">
-        <a href="#" id="@(item.beverageType.ToString())SelectButton">
-            <img src="../../Content/@(item.beverageType.ToString()).jpg" class="beverageButton" alt="@(item.beverageType.ToString())"/>
+        <a href="#" id="@(item.Beverage.ToString())SelectButton">
+            <img src="~/Content/@(item.Beverage.ToString()).jpg" data-cupid="@item.Id" class="beverageButton" alt="@(item.Beverage.ToString())"/>
         </a>
     </li>
 }

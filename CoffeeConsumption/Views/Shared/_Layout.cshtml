@@ -5,12 +5,28 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="~/Content/styles.css" rel="stylesheet" type="text/css">
-    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
-    <script src="../../Scripts/cc.main.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/cc.main.js"></script>
+    <script src="~/Scripts/cc.proxy.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            cc.urls = {};
+            cc.urls.getBeverageUrl = '@Url.Action("GetBeverage", "Home")';
+            $('.mainMenu li').removeClass('activeMenuItem');
+            $('.mainMenu li[id^="@(ViewContext.Controller.ValueProvider.GetValue("action").RawValue)"]').addClass('activeMenuItem');
+        });
+    </script>
 </head>
-<body>
-    <div class="contentDiv">
-        @RenderBody()
-    </div>
-</body>
+    <body>
+        <div class="mainDiv">
+        <ul class="mainMenu">
+            <li id="GetBeverageItem" onclick="window.location = '@Url.Action("GetBeverage", "Home")'">Get beverage</li>
+            <li id="PersonalReportItem" onclick="window.location = '@Url.Action("PersonalReport", "Report")'">Personal report</li>
+            <li id="OfficeRatingsItem" onclick="window.location = '@Url.Action("OfficeRatings", "Report")'">Office raiting</li>
+        </ul>
+            <div class="contentDiv">
+                @RenderBody()
+            </div>
+        </div>
+    </body>
 </html>
